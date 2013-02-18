@@ -5,7 +5,7 @@
 
 
 #import "UMTextField.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation UMTextField {
 
@@ -29,12 +29,12 @@
         [self.layer setBorderWidth:1.0];
         self.layer.cornerRadius = 5;
         self.clipsToBounds = YES;
-        self.marginWidth = 10;
-        self.marginHeight = 8;
+        self.marginWidth = 8;
+        self.marginHeight = 4;  // 8
 
         // a bit of magic to get the padding right with default font
-        self.yOffset = -2;
-        self.additionalWidth = 5;
+        self.yOffset = 2;
+        self.additionalWidth = 4;
     }
     return self;
 }

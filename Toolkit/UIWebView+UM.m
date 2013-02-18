@@ -10,7 +10,15 @@
 @implementation UIWebView (UM)
 
 
-- (NSURLRequest*) loadRequestWithString: (NSString*) urlString {
+- (NSURLRequest*)loadRequestWithRelativeFileURLString: (NSString*) urlString {
+    NSString* path = [[NSBundle mainBundle] pathForResource:urlString ofType:nil];
+    NSURL* url = [NSURL fileURLWithPath:path];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    [self loadRequest:request];
+    return request;
+}
+
+- (NSURLRequest*)loadRequestWithAbsoluteURLString: (NSString*) urlString {
     NSURL* url = [NSURL URLWithString:urlString];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self loadRequest:request];

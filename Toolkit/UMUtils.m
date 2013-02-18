@@ -207,4 +207,49 @@
 }
 
 
+/* !!!!! NOTE TO SELF
+ * NEED PROPER API for image loading cached / noncached with relative or absolute paths and optional iphone-5 path correction
+ */
+
++ (NSString*)iphone5CompatiblePath:(NSString*)path {
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
+        && [[UIScreen mainScreen] bounds].size.height == 568) {
+        path = [path stringByReplacingOccurrencesOfString:@".png" withString:@"-568h@2x.png"];
+        path = [path stringByReplacingOccurrencesOfString:@".jpg" withString:@"-568h@2x.jpg"];
+        // NSLog(@"path: %@", path);
+        return path;
+    }
+    else return path;
+}
+
++ (NSString*)makeBundlePath:(NSString*)string {
+    return [[NSBundle mainBundle] pathForResource:string ofType:nil];;
+}
+
++ (void)savePreferenceKey:(NSString*)string withFloat:(float) f {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setFloat:f forKey:string];
+    [defaults synchronize];
+}
+
++ (float) loadPreferenceFloatWithKey: (NSString*) key {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults floatForKey:key];
+}
+
++ (UIActivityIndicatorView*)grayRunningActivityIndicator {
+    UIActivityIndicatorView* indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicatorView startAnimating];
+    return indicatorView;
+}
+
++ (UIActivityIndicatorView*)whiteRunningActivityIndicator {
+    UIActivityIndicatorView* indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [indicatorView startAnimating];
+    return indicatorView;
+}
+
++ (CGRect)applicationFrame {
+    return [[[UIApplication sharedApplication] keyWindow] bounds];
+}
 @end

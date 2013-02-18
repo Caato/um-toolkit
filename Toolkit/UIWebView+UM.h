@@ -7,7 +7,9 @@
 #import <Foundation/Foundation.h>
 
 @interface UIWebView (UM)
-- (NSURLRequest*)loadRequestWithString:(NSString*)urlString;
+-(NSURLRequest *)loadRequestWithRelativeFileURLString:(NSString *)urlString;
+
+- (NSURLRequest*)loadRequestWithAbsoluteURLString:(NSString*)urlString;
 
 
 @end

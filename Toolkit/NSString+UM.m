@@ -19,7 +19,11 @@
 }
 
 - (Boolean) isEmpty {
-    return [self trimmedVersion].length == 0;
+    return self == nil || [self trimmedVersion].length == 0;
+}
+
++ (NSString*) stringWithData:(NSData*) data encoding:(NSStringEncoding) encoding {
+    return [[NSString alloc] initWithData:data encoding:encoding];
 }
 
 @end

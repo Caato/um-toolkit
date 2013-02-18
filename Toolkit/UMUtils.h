@@ -62,4 +62,17 @@
 
 + (UIImage*)nonCachedImageWithPath:(NSString*)string;
 
++ (NSString*)iphone5CompatiblePath:(NSString*)string;
+
++ (NSString*)makeBundlePath:(NSString*)string;
+
++ (void)savePreferenceKey:(NSString*)string withFloat:(float) f;
+
++ (float) loadPreferenceFloatWithKey: (NSString*) key;
+
++ (UIActivityIndicatorView*)grayRunningActivityIndicator;
+
++ (UIActivityIndicatorView*)whiteRunningActivityIndicator;
+
++ (CGRect)applicationFrame;
 @end

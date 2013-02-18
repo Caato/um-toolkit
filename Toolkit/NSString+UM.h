@@ -9,6 +9,8 @@
 
 @interface NSString (UM)
 
++(NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding;
+
 - (NSString *)trimmedVersion;
 
 - (BOOL)isEqualToStringIgnoreCase:(NSString *)other;
