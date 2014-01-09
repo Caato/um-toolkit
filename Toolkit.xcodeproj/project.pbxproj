@@ -32,6 +32,7 @@
 		3DDB962F75EF4A967AD8045E /* UMStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB9D6F7A923D008D14A311 /* UMStorage.m */; };
 		3DDB969144246B2E45D37CC3 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB9B7D9FAE0E766466BFF7 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDB96CFEEBA4371C931803D /* UMStorageDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB92C3AB1F14ABAE93FF81 /* UMStorageDownloadViewController.m */; };
+		3DDB9733A39CE1C06A617A1F /* UIViewController+UM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB99B56D8B7443BAE1E8C3 /* UIViewController+UM.m */; };
 		3DDB97574485F53D4F748027 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB94038CD1C86693A8D031 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDB9851353EDA5E45FB97ED /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB947CC16D76659ED1A87F /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DDB985586F4E8CE1A0507D2 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB91CB548577F8042B80DE /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -114,6 +115,7 @@
 		3DDB94038CD1C86693A8D031 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3DDB941E05DB9BD75CD02BCB /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		3DDB942F788AE55997FA9F75 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		3DDB945A1F93E93104361A49 /* UIViewController+UM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UM.h"; sourceTree = "<group>"; };
 		3DDB947CC16D76659ED1A87F /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
 		3DDB94D777A5F8124494582F /* UMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMUtils.m; sourceTree = "<group>"; };
 		3DDB94E64872894BDA8B5924 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		3DDB97CCE7A653D672EB12F2 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
 		3DDB97D509099FC70882C106 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
 		3DDB997B381EBF7256DDE4EB /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		3DDB99B56D8B7443BAE1E8C3 /* UIViewController+UM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UM.m"; sourceTree = "<group>"; };
 		3DDB9AD683C596C19FC007E7 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
 		3DDB9AD6B01A34F93EF45C7A /* UIWebView+UM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+UM.h"; sourceTree = "<group>"; };
 		3DDB9B11F29CB717D98ACFF7 /* NSObject+UM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+UM.h"; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				3DDB97672259B2D2DE129B86 /* UMStorageAddress.h */,
 				3DDB93A7A70A29E674F9BD5D /* NSObject+UM.m */,
 				3DDB9B11F29CB717D98ACFF7 /* NSObject+UM.h */,
+				3DDB99B56D8B7443BAE1E8C3 /* UIViewController+UM.m */,
+				3DDB945A1F93E93104361A49 /* UIViewController+UM.h */,
 			);
 			path = Toolkit;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				3DDB96CFEEBA4371C931803D /* UMStorageDownloadViewController.m in Sources */,
 				3DDB9B12AFDCEE750A10DDAB /* UMStorageAddress.m in Sources */,
 				3DDB944A2F0A7BB09964A098 /* NSObject+UM.m in Sources */,
+				3DDB9733A39CE1C06A617A1F /* UIViewController+UM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

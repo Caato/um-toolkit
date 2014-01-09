@@ -7,5 +7,9 @@
 #import <Foundation/Foundation.h>
 
 @interface UINavigationController (UM)
++ (id)doneButtonNavigationControllerWithRootViewController:(UIViewController*)controller;
+
 - (id)initDoneButtonNavigationControllerWithRootViewController:(UIViewController*)controller;
+
+- (id)initDoneButtonNavigationControllerWithRootViewController:(UIViewController*)controller target:(id)target selector:(SEL)selector;
 @end

@@ -12,4 +12,5 @@
 - (NSURLRequest*)loadRequestWithAbsoluteURLString:(NSString*)urlString;
 
 
+- (NSURLRequest*)loadRequestWithAbsoluteFileURLString:(NSString*)urlString;
 @end

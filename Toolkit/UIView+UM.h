@@ -20,6 +20,8 @@
 
 - (CGFloat)frameY;
 
+- (CGSize)frameSize;
+
 - (CGFloat)frameHeight;
 
 - (CGFloat)frameWidth;
@@ -44,6 +46,14 @@
 
 - (void)fadeOut;
 
+- (void)fadeInWithDuration:(CGFloat)duration toAlpha:(CGFloat)toAlpha;
+
+- (void)fadeOutWithDuration:(CGFloat)duration toAlpha:(CGFloat)toAlpha;
+
+- (void)fadeInToAlpha:(CGFloat)alpha;
+
+- (void)fadeOutToAlpha:(CGFloat)alpha;
+
 - (void)fadeInWithDuration:(CGFloat)duration;
 
 - (void)fadeOutWithDuration:(CGFloat)duration;
@@ -62,5 +72,8 @@
 
 - (void)moveDown:(CGFloat)down;
 
-- (void)hideGreen;
+- (void)increaseWidth:(CGFloat)adjustment;
+
+- (void)increaseHeight:(CGFloat)adjustment;
+
 @end

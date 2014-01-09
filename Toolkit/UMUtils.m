@@ -3,7 +3,7 @@
 //
 //
 
-
+#import "UIView+UM.h"
 #import "UMUtils.h"
 // #import "AppDelegate.h"
 
@@ -12,6 +12,14 @@
 
 }
 
+
++ (NSTimer*)scheduleHighPriorityTimerWithTimeInterval:(NSTimeInterval)delay target:(id)target selector:(SEL)selector repeats:(BOOL)repeats {
+    NSRunLoop* runloop = [NSRunLoop currentRunLoop];
+    NSTimer* timer = [NSTimer timerWithTimeInterval:delay target:target selector:selector userInfo:nil repeats:repeats];
+    [runloop addTimer:timer forMode:NSRunLoopCommonModes];
+    [runloop addTimer:timer forMode:UITrackingRunLoopMode];
+    return timer;
+}
 
 /// TIME STUFF
 
@@ -63,6 +71,11 @@
 
 + (UIImageView*) nonCachedAutosizedImageViewWithAbsolutePath: (NSString*) imgPath {
     UIImage* img = [UMUtils nonCachedImageWithAbsolutePath:imgPath];
+    UIImageView *imgView= [self autosizedImageViewWithImage:img];
+    return imgView;
+}
+
++ (UIImageView*)autosizedImageViewWithImage:(UIImage*)img {
     UIImageView* imgView = [[UIImageView alloc] initWithImage:img];
     imgView.frame = CGRectMake(0, 0, img.size.width, img.size.height);
     return imgView;
@@ -163,6 +176,13 @@
     return items;
 }
 
++ (BOOL) isFolder: (NSString*) path {
+    NSFileManager* manager = [NSFileManager defaultManager];
+    BOOL isDir;
+    [manager fileExistsAtPath:path isDirectory:&isDir];
+    return isDir;
+}
+
 + (BOOL) isFileExisting: (NSString*) path {
     NSFileManager* manager = [NSFileManager defaultManager];
     return [manager fileExistsAtPath:path];
@@ -249,7 +269,31 @@
     return indicatorView;
 }
 
++ (UIWindow*) applicationWindow {
+    return [[UIApplication sharedApplication] keyWindow];
+}
+
 + (CGRect)applicationFrame {
     return [[[UIApplication sharedApplication] keyWindow] bounds];
+}
+
++ (void)openURL:(NSURL*)url {
+    [[UIApplication sharedApplication] openURL:url];
+
+}
+
++ (void)openURLWithString:(NSString*)urlString {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+
+}
+
++ (UIView*)addHalfTranslucentBlackViewToView:(UIView*)view {
+    UIView* blackView = [UIView new];
+    blackView.frame = [view bounds];
+    blackView.alpha = 0.0;
+    blackView.backgroundColor = [UIColor blackColor];
+    [view addSubview:blackView];
+    [blackView fadeInToAlpha:0.5];
+    return blackView;
 }
 @end

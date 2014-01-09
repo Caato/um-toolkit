@@ -8,4 +8,12 @@
     dispatch_after(dispatchDelay, dispatch_get_main_queue(), block);
 }
 
+//- (void) performSelector: (SEL) sel WithBOOL: (BOOL) b {
+//    NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:sel]];
+//    [inv setSelector:sel];
+//    [inv setTarget:self];
+//    [inv setArgument:&b atIndex:2]; //arguments 0 and 1 are self and _cmd respectively, automatically set by NSInvocation
+//    [inv invoke];
+//}
+
 @end

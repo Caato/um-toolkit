@@ -9,6 +9,9 @@
 
 @interface UMUtils : NSObject
 
+
++ (NSTimer*)scheduleHighPriorityTimerWithTimeInterval:(NSTimeInterval)delay target:(id)target selector:(SEL)selector repeats:(BOOL)repeats;
+
 + (NSString*)currentYearString;
 
 + (NSString*)currentWeekdayString;
@@ -23,6 +26,8 @@
 
 + (UIImageView*)nonCachedAutosizedImageViewWithAbsolutePath:(NSString*)imgPath;
 
+
++ (UIImageView*)autosizedImageViewWithImage:(UIImage*)img;
 
 + (UIButton*)customAutosizedButtonWithImagePath:(NSString*)imgPath;
 
@@ -41,6 +46,8 @@
 + (NSError*)removeFileIfExisting:(NSString*)path;
 
 + (NSError*)createFolderIfNotExisting:(NSString*)path;
+
++ (BOOL) isFolder: (NSString*) path;
 
 + (void)copyFileFrom:(NSString*)srcPath to:(NSString*)dstPath;
 
@@ -74,5 +81,13 @@
 
 + (UIActivityIndicatorView*)whiteRunningActivityIndicator;
 
++ (UIWindow*)applicationWindow;
+
 + (CGRect)applicationFrame;
+
++ (void)openURL:(NSURL*)url;
+
++ (void)openURLWithString:(NSString*)urlString;
+
++ (UIView*)addHalfTranslucentBlackViewToView:(UIView*)view;
 @end

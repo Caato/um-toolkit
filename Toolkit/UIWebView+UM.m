@@ -25,4 +25,11 @@
     return request;
 }
 
+- (NSURLRequest*)loadRequestWithAbsoluteFileURLString: (NSString*) urlString {
+    NSURL* url = [NSURL fileURLWithPath:urlString];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    [self loadRequest:request];
+    return request;
+}
+
 @end

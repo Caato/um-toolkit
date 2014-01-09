@@ -33,6 +33,10 @@
     return self.frame.origin.y;
 }
 
+- (CGSize)frameSize {
+    return self.frame.size;
+}
+
 - (CGFloat)frameHeight {
     return self.frame.size.height;
 }
@@ -43,25 +47,25 @@
 
 - (void) setFrameX: (CGFloat) x {
     CGRect newFrame = self.frame;
-    newFrame.origin = CGPointMake(x, newFrame.origin.y);
+    newFrame.origin.x = x; //  = CGPointMake(x, newFrame.origin.y);
     self.frame = newFrame;
 }
 
 - (void) setFrameY: (CGFloat) y {
     CGRect newFrame = self.frame;
-    newFrame.origin = CGPointMake(newFrame.origin.x, y);
+    newFrame.origin.y = y;
     self.frame = newFrame;
 }
 
 - (void) setFrameWidth: (CGFloat) width {
     CGRect newFrame = self.frame;
-    newFrame.size = CGSizeMake(width, newFrame.size.height);
+    newFrame.size.width = width;
     self.frame = newFrame;
 }
 
 - (void) setFrameHeight: (CGFloat) height {
     CGRect newFrame = self.frame;
-    newFrame.size = CGSizeMake(newFrame.size.width, height);
+    newFrame.size.height = height;
     self.frame = newFrame;
 }
 
@@ -93,22 +97,38 @@
     [self fadeOutWithDuration:0.25];
 }
 
-- (void) fadeInWithDuration: (CGFloat) duration {
+- (void) fadeInWithDuration: (CGFloat) duration toAlpha:(CGFloat) toAlpha {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:duration];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    self.alpha = 1.0;
+    self.alpha = toAlpha;
     [UIView commitAnimations];
 }
 
-- (void) fadeOutWithDuration: (CGFloat) duration {
+- (void) fadeOutWithDuration: (CGFloat) duration toAlpha:(CGFloat) toAlpha {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:duration];
-    self.alpha = 0.0;
+    self.alpha = toAlpha;
     [UIView commitAnimations];
+}
+
+- (void) fadeInToAlpha: (CGFloat) alpha {
+    [self fadeInWithDuration:0.25 toAlpha:alpha];
+}
+
+- (void) fadeOutToAlpha: (CGFloat) alpha {
+    [self fadeOutWithDuration:0.25 toAlpha:alpha];
+}
+
+- (void) fadeInWithDuration: (CGFloat) duration {
+    [self fadeInWithDuration:duration toAlpha:1.0];
+}
+
+- (void) fadeOutWithDuration: (CGFloat) duration {
+    [self fadeOutWithDuration:duration toAlpha:0.0];
 }
 
 - (void) centerInFrame: (CGRect) frame {
@@ -141,5 +161,16 @@
     [self moveUp:-down];
 }
 
+- (void)increaseWidth: (CGFloat) adjustment {
+    CGRect newFrame = self.frame;
+    newFrame.size = CGSizeMake(newFrame.size.width + adjustment, newFrame.size.height);
+    self.frame = newFrame;
+}
+
+- (void)increaseHeight: (CGFloat) adjustment {
+    CGRect newFrame = self.frame;
+    newFrame.size = CGSizeMake(newFrame.size.width, newFrame.size.height + adjustment);
+    self.frame = newFrame;
+}
 
 @end

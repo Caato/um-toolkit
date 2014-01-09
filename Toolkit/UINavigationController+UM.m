@@ -17,12 +17,20 @@
 - (id)initDoneButtonNavigationControllerWithRootViewController:(UIViewController*) controller {
     if (self = [self init]) {
         [self pushViewController:controller animated:NO];
-        controller.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
+        controller.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissAnimated)];
     }
     return self;
 }
 
-- (void)close {
+- (id)initDoneButtonNavigationControllerWithRootViewController:(UIViewController*) controller target: (id) target selector: (SEL) selector {
+    if (self = [self init]) {
+        [self pushViewController:controller animated:NO];
+        controller.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:target action:selector];
+    }
+    return self;
+}
+
+- (void)dismissAnimated {
     [self.presentingViewController dismissModalViewControllerAnimated:YES];
 }
 
